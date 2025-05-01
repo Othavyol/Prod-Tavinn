@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prod. Tavin | Beats Exclusivos</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: {
+                                100: '#f3e8ff',
+                                200: '#e9d5ff',
+                                300: '#d8b4fe',
+                                400: '#c084fc',
+                                500: '#a855f7',
+                                600: '#9333ea',
+                                700: '#7e22ce',
+                                800: '#6b21a8',
+                                900: '#581c87',
+                            }
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f0f0f;
+            color: #e2e8f0;
+        }
+        
+        .beat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.3);
+        }
+        
+        .player-controls {
+            background: linear-gradient(90deg, rgba(15,15,15,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(10px);
+        }
+        
+        .waveform {
+            background: linear-gradient(90deg, rgba(168,85,247,0.2) 0%, rgba(168,85,247,0.5) 50%, rgba(168,85,247,0.2) 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #a855f7 0%, #c084fc 50%, #a855f7 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-gray-900 border-b border-purple-900/20 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-2xl font-bold gradient-text">PROD. TAVINN</span>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#" class="text-purple-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Início</a>
+                            <a href="#beats" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Beats</a>
+                            <a href="#services" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Serviços</a>
+                            <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sobre</a>
+                            <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contato</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-4 flex items-center md:ml-6">
+                        <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300">
+                            <i class="fas fa-shopping-cart mr-2"></i> Carrinho
+                        </button>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="text-purple-400 block px-3 py-2 rounded-md text-base font-medium">Início</a>
+                <a href="#beats" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Beats</a>
+                <a href="#services" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Serviços</a>
+                <a href="#about" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
+                <a href="#contact" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contato</a>
+                <button class="w-full bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md text-base font-medium mt-2 transition duration-300">
+                    <i class="fas fa-shopping-cart mr-2"></i> Carrinho
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative">
+        <!-- Fundo com GIF de plasma -->
+        <div class="absolute inset-0 z-[-1]">
+            <img src="imagens/gif-branco2.gif" alt="plasma roxo" class="w-full h-full object-cover opacity-30">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        <span class="gradient-text">BEATS EXCLUSIVOS</span><br>
+                        PARA SEU PRÓXIMO HIT
+                    </h1>
+                    <p class="text-lg text-gray-300 mb-8 max-w-lg">
+                        Produções profissionais e exclusivas para elevar sua música ao próximo nível. 
+                        Licenças personalizadas para cada necessidade.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="#beats" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 transform hover:scale-105">
+                            <i class="fas fa-headphones mr-2"></i> EXPLORAR BEATS
+                        </a>
+                        <a href="#contact" class="bg-transparent border-2 border-purple-500 text-purple-400 hover:bg-purple-900/30 px-6 py-3 rounded-lg font-medium transition duration-300 transform hover:scale-105">
+                            <i class="fas fa-envelope mr-2"></i> ENCOMENDAR
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 bg-purple-500/10 rounded-3xl -rotate-6"></div>
+                    <div class="absolute inset-0 bg-purple-500/5 rounded-3xl rotate-3"></div>
+                    <div class="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-1 shadow-2xl">
+                        <img src="imagens/gif-comeco.gif" alt="Studio setup" class="rounded-3xl w-full object-cover h-[350px]">
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Beats -->
+    <section id="beats" class="py-16 bg-gray-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">
+                    <span class="gradient-text">CATÁLOGO DE BEATS</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Explore nossa coleção de beats exclusivos. Cada produção é cuidadosamente criada para diferentes estilos e vibes.
+                </p>
+            </div>
+            
+            <!-- Beat Filters -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="px-4 py-2 rounded-full bg-purple-600 text-white text-sm font-medium">Todos</button>
+                <button class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm font-medium">Trap</button>
+                <button class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm font-medium">Funk</button>
+            </div>
+            
+            <!-- Beats Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Beat Card 1 -->
+                <div class="beat-card bg-gray-800 rounded-xl overflow-hidden transition duration-300 hover:shadow-lg">
+                    <div class="relative">
+                        <img src="capa-beat/capa1.png" 
+                             alt="Beat cover" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                            <a href="https://www.youtube.com/watch?v=sIBe7JyvMx0" target="_blank" rel="noopener noreferrer">
+                                <button class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-white hover:bg-purple-700 transition">        
+                                <i class="fas fa-play"></i>
+                                </button>
+                              </a>
+                        <span class="absolute top-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded">BPM: 122</span>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">Chorão x matuê x CBJR - Type Beat - O errado que deu certo</h3>
+                            <span class="text-purple-400 font-medium">R$130,00</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">Trap • Street • Melodic</p>
+                        <div class="flex justify-between items-center">
+                            <button class="text-gray-400 hover:text-white text-sm flex items-center">
+                                <i class="far fa-heart mr-1"></i> 24
+                            </button>
+                            <div class="flex space-x-2">
+                                <button class="text-gray-400 hover:text-purple-400">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                <button class="text-gray-400 hover:text-purple-400">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Beat Card 2 -->
+                <div class="beat-card bg-gray-800 rounded-xl overflow-hidden transition duration-300 hover:shadow-lg">
+                    <div class="relative">
+                        <img src="capa-beat/capa3.jpeg" 
+                             alt="Beat cover" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                            <a href="https://www.youtube.com/watch?v=qSINjv35GcI" target="_blank" rel="noopener noreferrer"><button class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-white hover:bg-purple-700 transition">
+                            <i class="fas fa-play"></i>
+                            </button>
+                        </a>
+                        <span class="absolute top-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded">BPM: 136</span>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">Chorão x CBJR x Matuê - Type Beat - Meu Novo Mundo</h3>
+                            <span class="text-purple-400 font-medium">R$130,00</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">Trap • Nostalgic • Melodic</p>
+                        <div class="flex justify-between items-center">
+                            <button class="text-gray-400 hover:text-white text-sm flex items-center">
+                                <i class="far fa-heart mr-1"></i> 42
+                            </button>
+                            <div class="flex space-x-2">
+                                <button class="text-gray-400 hover:text-purple-400">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                <button class="text-gray-400 hover:text-purple-400">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Beat Card 3 -->
+                <div class="beat-card bg-gray-800 rounded-xl overflow-hidden transition duration-300 hover:shadow-lg">
+                    <div class="relative">
+                        <img src="capa-beat/capa2.jpg" 
+                             alt="Beat cover" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                            <a href="https://www.youtube.com/watch?v=7y2MzPpfw8U" target="_blank" rel="noopener noreferrer"><button class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-white hover:bg-purple-700 transition">
+                            <i class="fas fa-play"></i>
+                            </button>
+                        </a>
+                        <span class="absolute top-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded">BPM: 124</span>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">Teto x Vulgo FK x only - Type Beat - Ballena</h3>
+                            <span class="text-purple-400 font-medium">R$130,00</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">Trap • Sauce • Melodic</p>
+                        <div class="flex justify-between items-center">
+                            <button class="text-gray-400 hover:text-white text-sm flex items-center">
+                                <i class="far fa-heart mr-1"></i> 36
+                            </button>
+                            <div class="flex space-x-2">
+                                <button class="text-gray-400 hover:text-purple-400">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                <button class="text-gray-400 hover:text-purple-400">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Beat Card 4 -->
+                <div class="beat-card bg-gray-800 rounded-xl overflow-hidden transition duration-300 hover:shadow-lg">
+                    <div class="relative">
+                        <img src="capa-beat/capa4.jpg" 
+                             alt="Beat cover" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                            <a href="https://www.youtube.com/watch?v=qHGDd_zK1TY" target="_blank" rel="noopener noreferrer"><button class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-white hover:bg-purple-700 transition">
+                            <i class="fas fa-play"></i>
+                            </button>
+                        </a>
+                        <span class="absolute top-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded">BPM: 148</span>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">Matuê x Cello x Chorão - Type Beat - Maquina do tempo</h3>
+                            <span class="text-purple-400 font-medium">R$130,00</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">Trap • Nostalgic • Melodic</p>
+                        <div class="flex justify-between items-center">
+                            <button class="text-gray-400 hover:text-white text-sm flex items-center">
+                                <i class="far fa-heart mr-1"></i> 58
+                            </button>
+                            <div class="flex space-x-2">
+                                <button class="text-gray-400 hover:text-purple-400">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                <button class="text-gray-400 hover:text-purple-400">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="px-6 py-3 border-2 border-purple-500 text-purple-400 hover:bg-purple-900/30 rounded-lg font-medium transition duration-300">
+                    <i class="fas fa-redo mr-2"></i> CARREGAR MAIS
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-16 bg-gray-900/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">
+                    <span class="gradient-text">NOSSOS SERVIÇOS</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Além de beats prontos, oferecemos serviços personalizados para atender todas as suas necessidades musicais.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition duration-300">
+                    <div class="w-14 h-14 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 mb-4">
+                        <i class="fas fa-music text-2xl animate-pulse-brilho"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Produção Personalizada</h3>
+                    <p class="text-gray-400 mb-4">
+                        Beats feitos sob medida para o seu projeto, com sua vibe e estilo específicos.
+                    </p>
+                    <a href="#" class="text-purple-400 hover:text-purple-300 font-medium inline-flex items-center">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition duration-300">
+                    <div class="w-14 h-14 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 mb-4">
+                        <i class="fas fa-microphone text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Mixagem & Masterização</h3>
+                    <p class="text-gray-400 mb-4">
+                        Seu som profissionalmente mixado e masterizado para streaming e lançamentos.
+                    </p>
+                    <a href="#" class="text-purple-400 hover:text-purple-300 font-medium inline-flex items-center">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition duration-300">
+                    <div class="w-14 h-14 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 mb-4">
+                        <i class="fas fa-record-vinyl text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Licenciamento Exclusivo</h3>
+                    <p class="text-gray-400 mb-4">
+                        Adquira direitos exclusivos sobre o beat para uso comercial sem restrições.
+                    </p>
+                    <a href="#" class="text-purple-400 hover:text-purple-300 font-medium inline-flex items-center">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-16 relative">
+        <!-- Fundo com GIF de plasma -->
+        <div class="absolute inset-0 z-[-1]">
+            <img src="imagens/gif-branco3.gif" alt="plasma roxo" class="w-full h-full object-cover opacity-20">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-3xl font-bold mb-6">
+                        <span class="gradient-text">SOBRE PROD. TAVIN</span>
+                    </h2>
+                    <p class="text-gray-400 mb-4">
+                        Produtor musical com mais de 5 anos de experiência criando beats para artistas em ascensão e nomes consagrados. 
+                        Especializado em Trap e Funk, mas sempre explorando novos sons e técnicas.
+                    </p>
+                    <p class="text-gray-400 mb-6">
+                        Meu objetivo é ajudar artistas a transformar suas ideias em realidade, fornecendo produções de alta qualidade 
+                        que complementem e elevem sua visão artística.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 mr-3">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span class="text-gray-300">+100 beats vendidos</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 mr-3">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span class="text-gray-300">+30 artistas atendidos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 relative w-full max-w-md mx-auto">
+                    <div class="absolute -inset-4 bg-purple-500/10 rounded-2xl -rotate-3"></div>
+                    <div class="relative">
+                        <img src="imagens/studio.jpg" 
+                             alt="Prod. Tavin no estúdio" class="rounded-xl w-full h-auto shadow-2xl">
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">
+                    <span class="gradient-text">ARTISTAS QUE CONFIAM</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Veja o que artistas que trabalharam com meus beats estão dizendo.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="imagens/men1.jpeg" alt="Artist" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Kael do 011</h4>
+                            <p class="text-purple-400 text-sm">Artista de Trap</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "Os beats do Tavin é fpda p crl* mlk consegue passar a vibe q o beat precisa, os grave é monstro!"
+                    </p>
+                    <div class="mt-4 text-purple-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="imagens/men2.jpeg" alt="Artist" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">thuzin TK</h4>
+                            <p class="text-purple-400 text-sm">Cantor de funk</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "foi um dos unicos beatmakers que fez um beat da maneira que eu pedi, deixou o vocal monstro, fez meu sonho virar realidade pprt."
+                    </p>
+                    <div class="mt-4 text-purple-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="imagens/men3.jpg" alt="Artist" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Derek RJ</h4>
+                            <p class="text-purple-400 text-sm">Artista de Drill</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "O Tavin é um dos poucos produtores que realmente entende Drill brasileiro. Seus beats são pesados, 
+                        mas com a melodia certa pra fazer sucesso. Minhas streams aumentaram 300% depois que comecei a usar os beats dele."
+                    </p>
+                    <div class="mt-4 text-purple-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">
+                        <span class="gradient-text">ENTRE EM CONTATO</span>
+                    </h2>
+                    <p class="text-gray-400 mb-8">
+                        Tem um projeto em mente? Quer encomendar um beat personalizado ou tem dúvidas sobre sua mix? 
+                        Mande uma mensagem que respondo o mais rápido possível.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm">Email</p>
+                                <p class="text-gray-300">othavyoluccasbissoni@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm">Telefone/WhatsApp</p>
+                                <p class="text-gray-300">+55 (35) 99275-1219</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm">Estúdio</p>
+                                <p class="text-gray-300">Minas Gerais, Brasil</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 flex space-x-4">
+                        <a href="https://www.instagram.com/bissoni__/" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-purple-600 flex items-center justify-center text-gray-300 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@prod.tav1nn" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-purple-600 flex items-center justify-center text-gray-300 hover:text-white transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://soundcloud.com/othavyo-luccas-453425834" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-purple-600 flex items-center justify-center text-gray-300 hover:text-white transition">
+                            <i class="fab fa-soundcloud"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <h3 class="text-xl font-bold mb-6">Mande sua mensagem</h3>
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-400 text-sm mb-2">Seu nome</label>
+                            <input type="text" id="name" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-400 text-sm mb-2">Email</label>
+                            <input type="email" id="email" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-gray-400 text-sm mb-2">Assunto</label>
+                            <select id="subject" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                <option value="">Selecione um assunto</option>
+                                <option value="beat">Encomendar beat</option>
+                                <option value="mixing">Mixagem/Masterização</option>
+                                <option value="other">Outro</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-400 text-sm mb-2">Mensagem</label>
+                            <textarea id="message" rows="4" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                            ENVIAR MENSAGEM
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Seção Unificada de eBook e Drumkit -->
+<section class="py-16 bg-gradient-to-b from-purple-900/20 to-gray-1000 relative">
+    <!-- Fundo com GIF -->
+<div class="absolute inset-0 z-[-1]">
+    <img src="imagens/gif-branco4.gif" alt="Fundo animado" class="w-full h-full object-cover opacity-10">
+</div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-10">
+
+        <!-- Área dos Beatmakers - Centralizado no topo -->
+        <div class="text-center mb-10">
+            <h2 class="text-4xl text-purple-400 font-semibold mb-4">Área dos Beatmakers</h2> <!-- Título centralizado -->
+            <p class="text-base text-white max-w-2xl mx-auto">
+                Aqui você encontrará tudo o que precisa para aprimorar suas produções, com recursos exclusivos para artistas que desejam se destacar no mundo da música.
+            </p>
+        </div>
+
+        <!-- Seção do eBook -->
+        <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
+            <!-- Texto à esquerda + Botão -->
+            <div class="max-w-lg text-center md:text-left">
+                <h2 class="text-2xl text-purple-400 font-semibold mb-4">Ebook Exclusivo</h2> <!-- Novo título -->
+                <p class="text-base text-white mb-4">
+                    Adquira também este ebook totalmente de graça para você aprender a mixar seus beats, um mimo de minha parte para todos os artistas de verdade!
+                </p>
+                <a href="https://drive.google.com/file/d/1VOi2PxEyv6ScX34NwLux40Gig2Qgzwmu/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                    <button type="button" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 whitespace-nowrap">
+                        Baixar Ebook
+                    </button>
+                </a>
+            </div>
+
+            <!-- Imagem à direita com borda torta -->
+            <div class="relative w-[480px] h-[250px] order-1 lg:order-2 tilt-img">
+                <div class="absolute -inset-6 bg-purple-900/30 rounded-2xl -rotate-2 z-0"></div>
+                <div class="absolute -inset-4 bg-purple-500/10 rounded-2xl -rotate-3"></div>
+                <div class="relative w-full h-full overflow-hidden rounded-xl shadow-2xl">
+                    <img src="imagens/Capa ebook.png" alt="Capa do eBook" class="object-cover w-full h-full">
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção do Drumkit (Imagem à esquerda, Texto à direita) -->
+        <div class="flex flex-col md:flex-row items-start gap-10 md:space-x-10">
+            <!-- Imagem à esquerda (agora primeiro!) -->
+            <div class="relative w-[240px] h-[330px] order-1 md:order-1 tilt-img">
+                <div class="absolute -inset-6 bg-purple-900/30 rounded-2xl -rotate-2 z-0"></div>
+                <div class="absolute -inset-4 bg-purple-500/10 rounded-2xl -rotate-3"></div>
+                <div class="relative w-full h-full overflow-hidden rounded-xl shadow-2xl">
+                    <img src="imagens/SYN - CAPA (by.Tav1nn).png" alt="Capa do Drumkit" class="object-cover w-full h-full">
+                </div>
+            </div>
+
+            <!-- Texto à direita agora -->
+            <div class="max-w-lg text-left order-2 md:order-2">
+                <h2 class="text-2xl text-purple-400 font-semibold mb-4">Drumkit Exclusivo</h2>
+                <p class="text-base text-white mb-4">
+                    Baixe meu drumkit com os timbres que mais uso nas minhas produções. Uma coleção única para elevar seus beats!
+                </p>
+                <a href="https://drive.google.com/file/d/1fK9_ICnX311QtU1WQZKxpy9IVIQ6ODyV/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                    <button type="button" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 whitespace-nowrap">
+                        Baixar Drumkit
+                    </button>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold gradient-text mb-4">PROD. TAVINN</h3>
+                    <p class="text-gray-400">
+                        Produções musicais de alta qualidade para artistas que buscam excelência e identidade sonora!
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-gray-300 font-medium mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition">Início</a></li>
+                        <li><a href="#beats" class="text-gray-400 hover:text-purple-400 transition">Beats</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-purple-400 transition">Serviços</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-purple-400 transition">Sobre</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-purple-400 transition">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-gray-300 font-medium mb-4">Termos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition">Política de Privacidade</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition">Termos de Uso</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition">Licenças</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-gray-300 font-medium mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/bissoni__/" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-purple-600 flex items-center justify-center text-gray-300 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@prod.tav1nn" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-purple-600 flex items-center justify-center text-gray-300 hover:text-white transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://soundcloud.com/othavyo-luccas-453425834" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-purple-600 flex items-center justify-center text-gray-300 hover:text-white transition">
+                            <i class="fab fa-soundcloud"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    &copy; 2025 Prod. Tavinn. Todos os direitos reservados.
+                </p>
+                <div class="flex space-x-6">
+                    <img src="imagens/logo-pix.png" alt="Pix" class="h-6 opacity-70">
+                    <img src="imagens/master-logo.png" alt="Mastercard" class="h-6 opacity-70">
+                    <img src="imagens/logo-visa.png" alt="Visa" class="h-6 opacity-70">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Simulate audio player appearing when a beat is played
+        setTimeout(() => {
+            document.getElementById('audio-player').classList.remove('hidden');
+        }, 3000);
+        
+        // Simple beat player functionality
+        const playButtons = document.querySelectorAll('.beat-card button');
+        playButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.closest('.beat-card');
+                const title = card.querySelector('h3').textContent;
+                const playerTitle = document.querySelector('#audio-player p.font-medium');
+                
+                if(playerTitle) {
+                    playerTitle.textContent = title;
+                    document.getElementById('audio-player').classList.remove('hidden');
+                }
+            });
+        });
+    </script>
+
+<script>
+    // Aplica o efeito tilt nas imagens com a classe 'tilt-img'
+    document.querySelectorAll('.tilt-img').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = -(y - centerY) / 4; // sensibilidade no eixo Y
+            const rotateY = (x - centerX) / 4;  // sensibilidade no eixo X
+
+            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            card.style.transition = 'transform 0.1s ease';
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+            card.style.transition = 'transform 0.5s ease';
+        });
+    });
+</script>
+
+</body>
+</html>
